@@ -2,6 +2,8 @@
 
 This repository contains two Streamlit applications demonstrating OpenAI-powered chatbots.
 
+**Live Demo:** [Invoice RAG Chat](https://alfredang-tgs-2025059028-openai-agent-wsq-appinvoice-rag-q0goip.streamlit.app/)
+
 ## Applications
 
 ### 1. Simple Chat (`app/simple_chat.py`)
