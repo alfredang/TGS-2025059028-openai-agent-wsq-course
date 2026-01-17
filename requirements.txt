@@ -1,0 +1,6 @@
+streamlit
+openai
+pypdf
+chromadb
+openai-agents
+tavily-python
