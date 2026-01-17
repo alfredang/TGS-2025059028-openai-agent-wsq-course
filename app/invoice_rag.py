@@ -6,7 +6,6 @@ st.set_page_config(
     page_icon="📄", 
     layout="wide")
 
-from dotenv import load_dotenv
 import os
 from pypdf import PdfReader
 from pathlib import Path
@@ -14,14 +13,15 @@ from openai import OpenAI
 import chromadb
 import tempfile
 
-load_dotenv()
-api_key = os.environ.get("OPENAI_API_KEY")
+# Get API key from Streamlit secrets (for cloud) or environment variable (for local)
+api_key = st.secrets.get("OPENAI_API_KEY") or os.environ.get("OPENAI_API_KEY")
 
 if not api_key:
-    raise ValueError("OPENAI_API_KEY is not set in the environment variables")
+    st.error("OPENAI_API_KEY is not set. Please add it to your Streamlit secrets or environment variables.")
+    st.stop()
 
 # Initialize OpenAI client
-openai_client = OpenAI()
+openai_client = OpenAI(api_key=api_key)
 
 # Initialize ChromaDB - use persistent client to maintain data across reruns
 @st.cache_resource

@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 import os
 import streamlit as st
 import asyncio
@@ -7,16 +6,20 @@ from tavily import TavilyClient
 
 # run this script with `streamlit run simple_chat.py`
 
-load_dotenv()
-api_key = os.environ.get("OPENAI_API_KEY")
-tavily_key = os.environ.get("TAVILY_API_KEY")
+# Get API keys from Streamlit secrets (for cloud) or environment variables (for local)
+api_key = st.secrets.get("OPENAI_API_KEY") or os.environ.get("OPENAI_API_KEY")
+tavily_key = st.secrets.get("TAVILY_API_KEY") or os.environ.get("TAVILY_API_KEY")
 
 if not api_key:
-    raise ValueError("OPENAI_API_KEY is not set in the environment variables")
+    st.error("OPENAI_API_KEY is not set. Please add it to your Streamlit secrets or environment variables.")
+    st.stop()
 
 if not tavily_key:
-    raise ValueError("TAVILY_API_KEY is not set in the environment variables")
+    st.error("TAVILY_API_KEY is not set. Please add it to your Streamlit secrets or environment variables.")
+    st.stop()
 
+# Set environment variable for OpenAI SDK
+os.environ["OPENAI_API_KEY"] = api_key
 
 @function_tool
 def tavily_search(query: str) -> str:
