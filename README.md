@@ -1,6 +1,6 @@
 # OpenAI Agent WSQ Course
 
-This repository contains two Streamlit applications demonstrating OpenAI-powered chatbots.
+This repository contains three Streamlit applications demonstrating OpenAI-powered chatbots and multi-agent systems.
 
 **Live Demo:** [Invoice RAG Chat](https://alfredang-tgs-2025059028-openai-agent-wsq-appinvoice-rag-q0goip.streamlit.app/)
 
@@ -47,6 +47,35 @@ A Retrieval-Augmented Generation (RAG) application for querying invoice PDFs usi
 ```bash
 streamlit run app/invoice_rag.py
 ```
+
+---
+
+### 3. Multi-Agent Trip Planner (`app/trip_planner.py`)
+
+A multi-agent AI system that orchestrates multiple specialized agents to plan trips. This demonstrates real-world agentic AI patterns used in enterprise automation.
+
+**Features:**
+- Multiple specialized AI agents working together:
+  - 🧠 **Planner Agent** - Creates day-by-day itineraries (uses Tavily search for attractions)
+  - 💰 **Budget Agent** - Estimates and tracks trip costs (uses Tavily search for prices)
+  - 🍣 **Local Guide Agent** - Recommends food and local tips (uses Tavily search for restaurants)
+- ✈️ **Travel Agent Orchestrator** - Coordinates all agents using `.as_tool()` pattern
+- **Tavily Search Integration** - Each agent searches for real-time, accurate information
+- Interactive UI for entering trip details
+- Structured output using Pydantic models
+- Tabbed results display for organized output
+- Uses GPT-4.1-mini model for all agents
+
+**Required Environment Variables:**
+- `OPENAI_API_KEY` - Your OpenAI API key
+- `TAVILY_API_KEY` - Your Tavily API key for real-time search
+
+**Run:**
+```bash
+streamlit run app/trip_planner.py
+```
+
+**Activity Guide:** See [ACTIVITY_MULTI_AGENT_TRIP_PLANNER.md](ACTIVITY_MULTI_AGENT_TRIP_PLANNER.md) for the full tutorial.
 
 ---
 
