@@ -7,8 +7,15 @@ from tavily import TavilyClient
 # run this script with `streamlit run simple_chat.py`
 
 # Get API keys from Streamlit secrets (for cloud) or environment variables (for local)
-api_key = st.secrets.get("OPENAI_API_KEY") or os.environ.get("OPENAI_API_KEY")
-tavily_key = st.secrets.get("TAVILY_API_KEY") or os.environ.get("TAVILY_API_KEY")
+try:
+    api_key = st.secrets["OPENAI_API_KEY"]
+except (KeyError, FileNotFoundError):
+    api_key = os.environ.get("OPENAI_API_KEY")
+
+try:
+    tavily_key = st.secrets["TAVILY_API_KEY"]
+except (KeyError, FileNotFoundError):
+    tavily_key = os.environ.get("TAVILY_API_KEY")
 
 if not api_key:
     st.error("OPENAI_API_KEY is not set. Please add it to your Streamlit secrets or environment variables.")
