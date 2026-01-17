@@ -75,8 +75,6 @@ A multi-agent AI system that orchestrates multiple specialized agents to plan tr
 streamlit run app/trip_planner.py
 ```
 
-**Activity Guide:** See [ACTIVITY_MULTI_AGENT_TRIP_PLANNER.md](ACTIVITY_MULTI_AGENT_TRIP_PLANNER.md) for the full tutorial.
-
 ---
 
 ## Setup
