@@ -66,6 +66,22 @@ streamlit run app/invoice_rag.py
 streamlit run app/invoice_rag_gemini.py
 ```
 
+#### OpenRouter Version (`app/invoice_rag_openrouter.py`)
+
+**Features:**
+- Same functionality as the OpenAI version
+- Uses OpenRouter's API for model access
+- Uses `openai/text-embedding-3-small` for embeddings
+- Uses `google/gemini-2.5-flash-lite` for generating responses
+
+**Required Environment Variables:**
+- `OPENROUTER_API_KEY` - Your OpenRouter API key
+
+**Run:**
+```bash
+streamlit run app/invoice_rag_openrouter.py
+```
+
 ---
 
 ### 3. Multi-Agent Trip Planner
@@ -130,6 +146,7 @@ streamlit run app/trip_planner_gemini.py
    ```
    OPENAI_API_KEY=your_openai_api_key
    GEMINI_API_KEY=your_gemini_api_key
+   OPENROUTER_API_KEY=your_openrouter_api_key
    TAVILY_API_KEY=your_tavily_api_key
    ```
 
