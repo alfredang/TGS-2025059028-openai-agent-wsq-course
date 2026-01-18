@@ -209,6 +209,8 @@ with st.sidebar:
         if st.button("🔄 New Chat"):
             st.session_state.messages = []
             st.rerun()
+    
+    st.markdown("Powered by Tertiary Infotech Academy")
 
 # Main chat interface
 st.title("📄Invoice RAG Chat")
@@ -256,3 +258,5 @@ Answer:"""
 
             # Add assistant response to chat history
             st.session_state.messages.append({"role": "assistant", "content": assistant_response})
+
+
