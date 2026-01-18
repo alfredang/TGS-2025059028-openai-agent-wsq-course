@@ -2,7 +2,7 @@
 
 This repository contains Streamlit applications demonstrating AI-powered chatbots and multi-agent systems using both OpenAI and Gemini APIs.
 
-**Live Demo:** [Invoice RAG Chat](https://invoice-rag-gemini.streamlit.app/)
+**Live Demo:** [Invoice RAG Chat](https://invoice-rag-openrouter.streamlit.app/)
 
 ## Applications
 
