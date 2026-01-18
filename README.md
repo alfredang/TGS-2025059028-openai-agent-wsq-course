@@ -1,8 +1,8 @@
 # OpenAI Agent WSQ Course
 
-This repository contains three Streamlit applications demonstrating OpenAI-powered chatbots and multi-agent systems.
+This repository contains Streamlit applications demonstrating AI-powered chatbots and multi-agent systems using both OpenAI and Gemini APIs.
 
-**Live Demo:** [Invoice RAG Chat](https://invoice-rag-openai.streamlit.app/)
+**Live Demo:** [Invoice RAG Chat](https://invoice-rag-gemini.streamlit.app/)
 
 ## Applications
 
@@ -27,9 +27,11 @@ streamlit run app/simple_chat.py
 
 ---
 
-### 2. Invoice RAG Chat (`app/invoice_rag.py`)
+### 2. Invoice RAG Chat
 
 A Retrieval-Augmented Generation (RAG) application for querying invoice PDFs using natural language.
+
+#### OpenAI Version (`app/invoice_rag.py`)
 
 **Features:**
 - Upload and index multiple PDF invoices
@@ -48,11 +50,29 @@ A Retrieval-Augmented Generation (RAG) application for querying invoice PDFs usi
 streamlit run app/invoice_rag.py
 ```
 
+#### Gemini Version (`app/invoice_rag_gemini.py`)
+
+**Features:**
+- Same functionality as the OpenAI version
+- Uses Gemini's `text-embedding-004` for embeddings
+- Uses `gemini-2.0-flash-lite` for generating responses
+- Uses Gemini's OpenAI-compatible API endpoint
+
+**Required Environment Variables:**
+- `GEMINI_API_KEY` - Your Google Gemini API key
+
+**Run:**
+```bash
+streamlit run app/invoice_rag_gemini.py
+```
+
 ---
 
-### 3. Multi-Agent Trip Planner (`app/trip_planner.py`)
+### 3. Multi-Agent Trip Planner
 
 A multi-agent AI system that orchestrates multiple specialized agents to plan trips. This demonstrates real-world agentic AI patterns used in enterprise automation.
+
+#### OpenAI Version (`app/trip_planner.py`)
 
 **Features:**
 - Multiple specialized AI agents working together:
@@ -75,6 +95,22 @@ A multi-agent AI system that orchestrates multiple specialized agents to plan tr
 streamlit run app/trip_planner.py
 ```
 
+#### Gemini Version (`app/trip_planner_gemini.py`)
+
+**Features:**
+- Same multi-agent functionality as the OpenAI version
+- Uses Gemini's OpenAI-compatible API endpoint
+- Uses `gemini-2.0-flash` model for all agents
+
+**Required Environment Variables:**
+- `GEMINI_API_KEY` - Your Google Gemini API key
+- `TAVILY_API_KEY` - Your Tavily API key for real-time search
+
+**Run:**
+```bash
+streamlit run app/trip_planner_gemini.py
+```
+
 ---
 
 ## Setup
@@ -93,7 +129,8 @@ streamlit run app/trip_planner.py
 3. Create a `.env` file in the project root:
    ```
    OPENAI_API_KEY=your_openai_api_key
+   GEMINI_API_KEY=your_gemini_api_key
    TAVILY_API_KEY=your_tavily_api_key
    ```
 
-4. Run either application using the commands above.
+4. Run any application using the commands above.
